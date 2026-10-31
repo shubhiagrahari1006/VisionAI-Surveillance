@@ -229,9 +229,11 @@ def render_detection_page():
             selected_sample_img = st.selectbox(
                 "Choose sample image:",
                 sample_img_files,
+                index=None,
+                placeholder="-- Select a sample image to analyze --",
                 format_func=format_sample_name,
             )
-            if selected_sample_img:
+            if selected_sample_img is not None:
                 st.image(str(selected_sample_img), caption="Sample Image Preview", use_container_width=True)
                 image_path_to_process = selected_sample_img
         else:
@@ -427,9 +429,11 @@ def render_detection_page():
             selected_sample_vid = st.selectbox(
                 "Choose a sample test video:",
                 sample_vid_files,
+                index=None,
+                placeholder="-- Select a sample test video to track --",
                 format_func=format_sample_vid_name,
             )
-            if selected_sample_vid:
+            if selected_sample_vid is not None:
                 st.caption("Input Surveillance Feed Preview:")
                 st.video(str(selected_sample_vid))
                 video_path_to_process = selected_sample_vid

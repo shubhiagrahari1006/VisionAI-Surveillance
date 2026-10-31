@@ -546,6 +546,126 @@ def apply_custom_theme():
             color: var(--text-title) !important;
         }}
 
+        /* ---------------------------------------------------------
+           HIGH-CONTRAST DARK & LIGHT WIDGET LABELS & TEXT
+           Fixes dark text unreadable in Dark Mode
+           --------------------------------------------------------- */
+        label[data-testid="stWidgetLabel"],
+        label[data-testid="stWidgetLabel"] p,
+        label[data-testid="stWidgetLabel"] span,
+        .stWidgetLabel,
+        .stWidgetLabel p,
+        [data-testid="stWidgetLabel"] * {{
+            color: var(--text-title) !important;
+            font-weight: 650 !important;
+            font-size: 13.5px !important;
+            letter-spacing: -0.2px !important;
+        }}
+
+        /* Radio Options (Horizontal & Vertical Radio Labels) */
+        [data-testid="stRadio"] div[role="radiogroup"] label p,
+        [data-testid="stRadio"] div[role="radiogroup"] label span,
+        [data-testid="stRadio"] div[role="radiogroup"] p,
+        [data-testid="stRadio"] div[role="radiogroup"] span {{
+            color: var(--text-body) !important;
+            font-weight: 550 !important;
+            font-size: 13.5px !important;
+        }}
+
+        [data-testid="stRadio"] div[role="radiogroup"] label:hover p {{
+            color: var(--cyan-primary) !important;
+        }}
+
+        /* Tabs Styling (Active Cyan, Inactive Crisp Legible Text) */
+        [data-baseweb="tab-list"] {{
+            border-bottom: 1px solid var(--card-border) !important;
+            background: transparent !important;
+            gap: 8px !important;
+        }}
+
+        button[data-baseweb="tab"] {{
+            color: var(--text-muted) !important;
+            font-weight: 600 !important;
+            font-size: 14.5px !important;
+            padding: 10px 18px !important;
+            border-bottom: 2.5px solid transparent !important;
+            transition: all 0.2s ease !important;
+            background: transparent !important;
+        }}
+
+        button[data-baseweb="tab"]:hover {{
+            color: var(--text-title) !important;
+        }}
+
+        button[data-baseweb="tab"][aria-selected="true"] {{
+            color: var(--cyan-primary) !important;
+            font-weight: 800 !important;
+            border-bottom: 2.5px solid var(--cyan-primary) !important;
+        }}
+
+        /* Selectbox Dropdown values & options */
+        div[data-baseweb="select"] div,
+        div[data-baseweb="select"] span {{
+            color: var(--text-title) !important;
+            font-size: 13.5px !important;
+        }}
+
+        div[data-baseweb="popover"],
+        ul[role="listbox"] {{
+            background-color: var(--card-bg) !important;
+            border: 1px solid var(--card-border) !important;
+            border-radius: 10px !important;
+            box-shadow: var(--card-shadow) !important;
+        }}
+
+        ul[role="listbox"] li {{
+            color: var(--text-title) !important;
+            background-color: var(--card-bg) !important;
+        }}
+
+        ul[role="listbox"] li:hover,
+        ul[role="listbox"] li[aria-selected="true"] {{
+            background-color: var(--sidebar-nav-active) !important;
+            color: var(--cyan-primary) !important;
+        }}
+
+        /* Sliders Value & Labels */
+        [data-testid="stSlider"] div[data-testid="stThumbValue"] {{
+            color: var(--cyan-primary) !important;
+            font-weight: 700 !important;
+        }}
+
+        [data-testid="stSlider"] div[data-testid="stTickBar"] span {{
+            color: var(--text-muted) !important;
+        }}
+
+        /* File Uploader */
+        [data-testid="stFileUploader"] section {{
+            background-color: var(--card-bg) !important;
+            border: 1.5px dashed var(--input-border) !important;
+            border-radius: 12px !important;
+            padding: 16px !important;
+        }}
+
+        [data-testid="stFileUploader"] section small,
+        [data-testid="stFileUploader"] section span,
+        [data-testid="stFileUploader"] section button {{
+            color: var(--text-body) !important;
+        }}
+
+        /* General Canvas Markdown Text */
+        .stMarkdown,
+        .stMarkdown p,
+        .stMarkdown span,
+        .stMarkdown li {{
+            color: var(--text-body) !important;
+        }}
+
+        .stMarkdown strong,
+        .stMarkdown b {{
+            color: var(--text-title) !important;
+        }}
+
         /* Dataframe */
         [data-testid="stDataFrame"] {{
             border: 1px solid var(--card-border) !important;
