@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+app/__pycache__/
+output/
+roboflow dataset/
+weights/
+*.pyc
+.DS_Store
