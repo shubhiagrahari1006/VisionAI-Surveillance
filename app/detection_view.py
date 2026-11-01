@@ -195,26 +195,22 @@ def render_detection_page():
         raw_sample_files = list(sample_img_dir.glob("*.jpg")) + list(sample_img_dir.glob("*.png"))
 
         def sample_sort_key(p: Path) -> int:
-            name_lower = p.name.lower()
-            if "test" in name_lower and "lpg" not in name_lower:
+            nl = p.name.lower()
+            if "1" in nl or "everyday" in nl:
                 return 0
-            if "lpg" in name_lower:
+            if "2" in nl or "hazard" in nl or "cylinder" in nl or "getty" in nl:
                 return 1
-            if "getty" in name_lower or "cylinder" in name_lower:
-                return 2
-            return 3
+            return 2
 
         sample_img_files = sorted(raw_sample_files, key=sample_sort_key)
 
         def format_sample_name(p: Path) -> str:
-            name_lower = p.name.lower()
-            if "test.jpg" in name_lower:
+            nl = p.name.lower()
+            if "1" in nl or "everyday" in nl:
                 return "Test Image 1 (Everyday Scene)"
-            if "lpg" in name_lower:
-                return "Test Image 2 (Gas Cylinders Array)"
-            if "getty" in name_lower:
-                return "Test Image 3 (Roadside Cylinders)"
-            return f"Test Image ({p.name})"
+            if "2" in nl or "hazard" in nl or "cylinder" in nl or "getty" in nl:
+                return "Test Image 2 (Hazardous Elements - YOLO11n)"
+            return f"Test Image ({p.stem})"
 
         img_source_choice = st.radio(
             "Select Image Source:",
